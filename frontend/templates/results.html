@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+</head>
+<body>
+    <h2>Recommended Movies:</h2>
+    
+    {% if results is not none and results|length > 0 %}
+        <ul>
+            {% for index, movie in results.iterrows() %}
+                <li>{{ movie['title'] }} ({{ movie['genres'] }})</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found. Try another movie or genre.</p>
+    {% endif %}
+
+    <br>
+    <a href="/">Go Back</a>
+</body>
+</html>
